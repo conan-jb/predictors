@@ -1,0 +1,360 @@
+{
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "jbarrus",
+    "password": "majorbettor",
+    "database": "mlb_predictions"
+  },
+  "rootDBAccess": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "2hornets",
+    "database": "mlb_predictions"
+  },
+  "app": {
+    "debug": true,
+    "log_file": "app.log",
+    "ODDS_API_URL": "https://api.the-odds-api.com/v4/sports/baseball_mlb/odds",
+    "WEATHER_API_URL": "https://api.openweathermap.org/data/2.5/weather",
+    "WEATHER_API_URL_2": "https://api.openweathermap.org/data/3.0",
+    "THRESHOLD_PITCHER_ERA": 4.0,
+    "THRESHOLD_RECENT_ER": 6,
+    "THRESHOLD_BULLPEN_ERA": 4.2,
+    "THRESHOLD_RUNS_PER_GAME": 5,
+    "THRESHOLD_TEMP": 85,
+    "THRESHOLD_WIND": 5,
+    "THRESHOLD_HITTERS_PARK": 5,
+    "THRESHOLD_LINEUP": 5,
+    "THRESHOLD_WIND_PARK_FACTOR": 1.5,
+    "BOLD": "\\\\033[1m",
+    "END": "\\\\033[0m",
+    "TEAM_TO_CITY": {
+      "Arizona Diamondbacks": "Phoenix",
+      "Atlanta Braves": "Atlanta",
+      "Baltimore Orioles": "Baltimore",
+      "Boston Red Sox": "Boston",
+      "Chicago Cubs": "Chicago",
+      "Chicago White Sox": "Chicago",
+      "Cincinnati Reds": "Cincinnati",
+      "Cleveland Guardians": "Cleveland",
+      "Colorado Rockies": "Denver",
+      "Detroit Tigers": "Detroit",
+      "Houston Astros": "Houston",
+      "Kansas City Royals": "Kansas City",
+      "Los Angeles Angels": "Anaheim",
+      "Los Angeles Dodgers": "Los Angeles",
+      "Miami Marlins": "Miami",
+      "Milwaukee Brewers": "Milwaukee",
+      "Minnesota Twins": "Minneapolis",
+      "New York Mets": "New York",
+      "New York Yankees": "New York",
+      "Oakland Athletics": "Oakland",
+      "Athletics": "Oakland",
+      "Philadelphia Phillies": "Philadelphia",
+      "Pittsburgh Pirates": "Pittsburgh",
+      "San Diego Padres": "San Diego",
+      "San Francisco Giants": "San Francisco",
+      "Seattle Mariners": "Seattle",
+      "St. Louis Cardinals": "St. Louis",
+      "Tampa Bay Rays": "St. Petersburg",
+      "Texas Rangers": "Arlington",
+      "Toronto Blue Jays": "Toronto",
+      "Washington Nationals": "Washington"
+    },
+    "PARK_FACTORS": {
+      "Chase Field": 1.05,
+      "Truist Park": 0.96,
+      "Oriole Park at Camden Yards": 1.1,
+      "Fenway Park": 1.12,
+      "Wrigley Field": 1.07,
+      "Guaranteed Rate Field": 0.94,
+      "Rate Field": 0.94,
+      "Great American Ball Park": 1.03,
+      "Progressive Field": 0.95,
+      "Coors Field": 1.5,
+      "Comerica Park": 0.89,
+      "Minute Maid Park": 1.06,
+      "Kauffman Stadium": 0.92,
+      "Angel Stadium": 1.01,
+      "Dodger Stadium": 0.85,
+      "LoanDepot Park": 1.02,
+      "American Family Field": 1.03,
+      "Target Field": 0.92,
+      "Citi Field": 0.91,
+      "Yankee Stadium": 1.0,
+      "Sutter Health Park": 0.95,
+      "Oakland Coliseum": 0.91,
+      "Citizens Bank Park": 1.07,
+      "PNC Park": 0.9,
+      "Petco Park": 0.9,
+      "Oracle Park": 0.87,
+      "T-Mobile Park": 0.89,
+      "Busch Stadium": 0.94,
+      "Tropicana Field": 0.92,
+      "Globe Life Field": 1.02,
+      "Rogers Centre": 0.95,
+      "Nationals Park": 0.95,
+      "Daikin Park": 1.05
+    },
+    "PARK_DIRECTIONS": {
+      "Chase Field": 359.75,
+      "Truist Park": 157.65,
+      "Oriole Park at Camden Yards": 31.34,
+      "Fenway Park": 44.17,
+      "Wrigley Field": 37.62,
+      "Guaranteed Rate Field": 127.06,
+      "Great American Ball Park": 122.34,
+      "Progressive Field": 359.25,
+      "Coors Field": 4.96,
+      "Comerica Park": 151.23,
+      "Minute Maid Park": 343.17,
+      "Kauffman Stadium": 46.71,
+      "Angel Stadium": 44.17,
+      "Dodger Stadium": 26.48,
+      "LoanDepot Park": 128.13,
+      "American Family Field": 128.89,
+      "Target Field": 90.5,
+      "Citi Field": 13.99,
+      "Yankee Stadium": 75.62,
+      "Sutter Health Park": 54.51,
+      "Oakland Coliseum": 54.51,
+      "Citizens Bank Park": 10.07,
+      "PNC Park": 116.58,
+      "Petco Park": 359.74,
+      "Oracle Park": 85.15,
+      "T-Mobile Park": 49.31,
+      "Busch Stadium": 62.7,
+      "Tropicana Field": 49.0,
+      "Globe Life Field": 32.8,
+      "Rogers Centre": 344.09,
+      "Nationals Park": 28.95,
+      "Daikin Park": 330.0
+    },
+    "LINEUP_FACTORS": {
+      "Arizona Diamondbacks": 0.95,
+      "Atlanta Braves": 0.8,
+      "Baltimore Orioles": 0.74,
+      "Boston Red Sox": 0.92,
+      "Chicago Cubs": 0.97,
+      "Chicago White Sox": 0.72,
+      "Cincinnati Reds": 0.72,
+      "Cleveland Guardians": 0.74,
+      "Colorado Rockies": 0.65,
+      "Detroit Tigers": 0.88,
+      "Houston Astros": 0.82,
+      "Kansas City Royals": 0.73,
+      "Los Angeles Angels": 0.75,
+      "Los Angeles Dodgers": 1.0,
+      "Miami Marlins": 0.66,
+      "Milwaukee Brewers": 0.86,
+      "Minnesota Twins": 0.75,
+      "New York Mets": 0.83,
+      "New York Yankees": 0.98,
+      "Oakland Athletics": 0.73,
+      "Philadelphia Phillies": 0.84,
+      "Pittsburgh Pirates": 0.7,
+      "San Diego Padres": 0.81,
+      "San Francisco Giants": 0.7,
+      "Seattle Mariners": 0.85,
+      "St. Louis Cardinals": 0.78,
+      "Tampa Bay Rays": 0.79,
+      "Texas Rangers": 0.78,
+      "Toronto Blue Jays": 0.85,
+      "Washington Nationals": 0.75
+    },
+    "TEAM_PLATOON_SPLITS": {
+      "Arizona Diamondbacks": {
+        "wrcp_vs_RHP": 118,
+        "factor_vs_RHP": 1.0,
+        "wrcp_vs_LHP": 98,
+        "factor_vs_LHP": 0.9
+      },
+      "New York Yankees": {
+        "wrcp_vs_RHP": 115,
+        "factor_vs_RHP": 0.97,
+        "wrcp_vs_LHP": 122,
+        "factor_vs_LHP": 1.0
+      },
+      "Los Angeles Dodgers": {
+        "wrcp_vs_RHP": 113,
+        "factor_vs_RHP": 0.95,
+        "wrcp_vs_LHP": 118,
+        "factor_vs_LHP": 0.99
+      },
+      "Atlanta Braves": {
+        "wrcp_vs_RHP": 120,
+        "factor_vs_RHP": 0.99,
+        "wrcp_vs_LHP": 110,
+        "factor_vs_LHP": 0.92
+      },
+      "Chicago Cubs": {
+        "wrcp_vs_RHP": 117,
+        "factor_vs_RHP": 0.98,
+        "wrcp_vs_LHP": 112,
+        "factor_vs_LHP": 0.94
+      },
+      "Houston Astros": {
+        "wrcp_vs_RHP": 95,
+        "factor_vs_RHP": 0.78,
+        "wrcp_vs_LHP": 136,
+        "factor_vs_LHP": 1.0
+      },
+      "Seattle Mariners": {
+        "wrcp_vs_RHP": 114,
+        "factor_vs_RHP": 0.94,
+        "wrcp_vs_LHP": 85,
+        "factor_vs_LHP": 0.7
+      },
+      "Texas Rangers": {
+        "wrcp_vs_RHP": 92,
+        "factor_vs_RHP": 0.81,
+        "wrcp_vs_LHP": 102,
+        "factor_vs_LHP": 0.88
+      },
+      "Minnesota Twins": {
+        "wrcp_vs_RHP": 100,
+        "factor_vs_RHP": 0.85,
+        "wrcp_vs_LHP": 98,
+        "factor_vs_LHP": 0.84
+      },
+      "Baltimore Orioles": {
+        "wrcp_vs_RHP": 103,
+        "factor_vs_RHP": 0.87,
+        "wrcp_vs_LHP": 107,
+        "factor_vs_LHP": 0.9
+      },
+      "Milwaukee Brewers": {
+        "wrcp_vs_RHP": 108,
+        "factor_vs_RHP": 0.9,
+        "wrcp_vs_LHP": 100,
+        "factor_vs_LHP": 0.85
+      },
+      "Toronto Blue Jays": {
+        "wrcp_vs_RHP": 110,
+        "factor_vs_RHP": 0.92,
+        "wrcp_vs_LHP": 98,
+        "factor_vs_LHP": 0.84
+      },
+      "Cincinnati Reds": {
+        "wrcp_vs_RHP": 115,
+        "factor_vs_RHP": 0.96,
+        "wrcp_vs_LHP": 95,
+        "factor_vs_LHP": 0.82
+      },
+      "Philadelphia Phillies": {
+        "wrcp_vs_RHP": 112,
+        "factor_vs_RHP": 0.94,
+        "wrcp_vs_LHP": 99,
+        "factor_vs_LHP": 0.85
+      },
+      "Cleveland Guardians": {
+        "wrcp_vs_RHP": 107,
+        "factor_vs_RHP": 0.89,
+        "wrcp_vs_LHP": 105,
+        "factor_vs_LHP": 0.88
+      },
+      "San Francisco Giants": {
+        "wrcp_vs_RHP": 110,
+        "factor_vs_RHP": 0.92,
+        "wrcp_vs_LHP": 108,
+        "factor_vs_LHP": 0.91
+      },
+      "Detroit Tigers": {
+        "wrcp_vs_RHP": 109,
+        "factor_vs_RHP": 0.91,
+        "wrcp_vs_LHP": 106,
+        "factor_vs_LHP": 0.89
+      },
+      "Boston Red Sox": {
+        "wrcp_vs_RHP": 108,
+        "factor_vs_RHP": 0.9,
+        "wrcp_vs_LHP": 111,
+        "factor_vs_LHP": 0.92
+      },
+      "San Diego Padres": {
+        "wrcp_vs_RHP": 105,
+        "factor_vs_RHP": 0.88,
+        "wrcp_vs_LHP": 100,
+        "factor_vs_LHP": 0.85
+      },
+      "Oakland Athletics": {
+        "wrcp_vs_RHP": 102,
+        "factor_vs_RHP": 0.86,
+        "wrcp_vs_LHP": 100,
+        "factor_vs_LHP": 0.84
+      },
+      "Athletics": {
+        "wrcp_vs_RHP": 102,
+        "factor_vs_RHP": 0.86,
+        "wrcp_vs_LHP": 100,
+        "factor_vs_LHP": 0.84
+      },
+      "Chicago White Sox": {
+        "wrcp_vs_RHP": 98,
+        "factor_vs_RHP": 0.84,
+        "wrcp_vs_LHP": 99,
+        "factor_vs_LHP": 0.84
+      },
+      "Tampa Bay Rays": {
+        "wrcp_vs_RHP": 103,
+        "factor_vs_RHP": 0.87,
+        "wrcp_vs_LHP": 105,
+        "factor_vs_LHP": 0.88
+      },
+      "Colorado Rockies": {
+        "wrcp_vs_RHP": 95,
+        "factor_vs_RHP": 0.78,
+        "wrcp_vs_LHP": 110,
+        "factor_vs_LHP": 0.92
+      },
+      "Miami Marlins": {
+        "wrcp_vs_RHP": 90,
+        "factor_vs_RHP": 0.75,
+        "wrcp_vs_LHP": 105,
+        "factor_vs_LHP": 0.88
+      },
+      "Kansas City Royals": {
+        "wrcp_vs_RHP": 103,
+        "factor_vs_RHP": 0.87,
+        "wrcp_vs_LHP": 101,
+        "factor_vs_LHP": 0.86
+      },
+      "St. Louis Cardinals": {
+        "wrcp_vs_RHP": 110,
+        "factor_vs_RHP": 0.92,
+        "wrcp_vs_LHP": 106,
+        "factor_vs_LHP": 0.89
+      },
+      "Pittsburgh Pirates": {
+        "wrcp_vs_RHP": 98,
+        "factor_vs_RHP": 0.84,
+        "wrcp_vs_LHP": 103,
+        "factor_vs_LHP": 0.87
+      },
+      "Los Angeles Angels": {
+        "wrcp_vs_RHP": 105,
+        "factor_vs_RHP": 0.88,
+        "wrcp_vs_LHP": 107,
+        "factor_vs_LHP": 0.9
+      },
+      "New York Mets": {
+        "wrcp_vs_RHP": 113,
+        "factor_vs_RHP": 0.95,
+        "wrcp_vs_LHP": 109,
+        "factor_vs_LHP": 0.93
+      },
+      "Washington Nationals": {
+        "wrcp_vs_RHP": 98,
+        "factor_vs_RHP": 0.84,
+        "wrcp_vs_LHP": 103,
+        "factor_vs_LHP": 0.87
+      }
+    }
+  },
+  "keys": {
+    "ODDS_API_KEY": "e1f1fcb20b5e42e08c2a4f141592439d",
+    "WEATHER_API_KEY": "ee625420c39f737385e67ae6d9cc3934"
+  }
+}
